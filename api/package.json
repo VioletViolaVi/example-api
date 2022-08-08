@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "dev": "echo 'Nothing here yet.'"
+    "dev": "nodemon -L index.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
