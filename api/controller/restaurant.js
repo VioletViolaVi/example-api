@@ -1,9 +1,9 @@
 const Restaurant = require("../model/Restaurant");
 
-async function showEverything(req, res) {
+async function showFullMenu(req, res) {
   try {
-    const restaurants = await Restaurant.displayAllFood();
-    res.status(200).json({
+    const restaurants = await Restaurant.displayFullMenu();
+    res.json({
       restaurants: restaurants
     });
   } catch (err) {
@@ -13,4 +13,20 @@ async function showEverything(req, res) {
   }
 }
 
-module.exports = showEverything;
+async function createMenuSlot(req, res) {
+  try {
+    const food = req.body.food;
+    const price = req.body.price;
+
+    const createdMenu = await Restaurant.addMenuSlot(food, price);
+    res.json({
+      restaurantMenu: createdMenu
+    });
+  } catch (err) {
+    res.json({
+      error: err
+    });
+  }
+}
+
+module.exports = { showFullMenu, createMenuSlot };
