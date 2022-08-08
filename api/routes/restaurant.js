@@ -4,8 +4,7 @@ const restaurantController = require("../controller/restaurant");
 
 const restaurantRouter = Router();
 
-restaurantRouter.get("/", (req, res) => {
-  res.send(restaurantController.showEverything);
-});
+restaurantRouter.get("/", restaurantController.showFullMenu);
+restaurantRouter.post("/", restaurantController.createMenuSlot);
 
 module.exports = restaurantRouter;
