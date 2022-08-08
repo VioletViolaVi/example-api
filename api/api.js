@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const busRouter = require("./routes/bus");
+const restaurantRouter = require("./routes/restaurant");
 
 const api = express();
 
@@ -14,5 +15,6 @@ api.get("/", (req, res) => {
 
 // set up bus routes
 api.use("/buses", busRouter);
+api.use("/restaurants", restaurantRouter);
 
 module.exports = api;
